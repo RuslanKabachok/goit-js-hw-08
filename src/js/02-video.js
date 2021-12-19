@@ -9,7 +9,10 @@ let stopTime;
 player.on('timeupdate', function (obj) {
   stopTime = obj.seconds;
   // localStorage.setItem('videoplayer-current-time', JSON.stringify(stopTime));
-  _.throttle(localStorage.setItem('videoplayer-current-time', JSON.stringify(stopTime)), 1000);
+  // _.throttle(() => {}, 1000);
+  _.throttle(() => {
+    localStorage.setItem('videoplayer-current-time', JSON.stringify(stopTime));
+  }, 1000);
 });
 
 player

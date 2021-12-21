@@ -10,9 +10,12 @@ formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
+  const savedData = JSON.parse(localStorage.getItem('feedback-form-state'));
+  formData.email = savedData.email;
+  formData.message = savedData.message;
+  console.log(formData);
   e.target.reset();
   localStorage.removeItem('feedback-form-state');
-  console.log(formData);
 }
 
 function onFormInput(e) {

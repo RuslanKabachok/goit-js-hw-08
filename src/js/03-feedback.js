@@ -15,9 +15,6 @@ refs.formEl.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  const savedData = JSON.parse(localStorage.getItem('feedback-form-state'));
-  formData.email = savedData.email || '';
-  formData.message = savedData.message || '';
   console.log(formData);
   e.target.reset();
   localStorage.removeItem('feedback-form-state');
@@ -34,5 +31,7 @@ function onLoad() {
   if (savedData) {
     refs.email.value = savedData.email || '';
     refs.message.value = savedData.message || '';
+    formData.email = savedData.email || '';
+    formData.message = savedData.message || '';
   }
 }
